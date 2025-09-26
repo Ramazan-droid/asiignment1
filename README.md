@@ -90,6 +90,7 @@ public class mergersort {
     }
 
 }
+```
 ### Quick Sort
 ```java
 import java.util.Random;
@@ -157,6 +158,7 @@ public class quicksort {
         arr[j] = temp;
     }
 }
+```
 ### Deterministic select
 ```java
 import java.util.Arrays;
@@ -211,7 +213,7 @@ public class DeterministicSelect {
         int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
     }
 }
-
+```
 ### Closest pair of points
 ```java
 import java.util.Arrays;
@@ -253,49 +255,8 @@ public class ClosestPairOfPoints {
         return closestUtil(pointsSortedX, 0, pointsSortedX.length - 1);
     }
 }
-
-
- 
-import java.util.Arrays;
-import java.util.Comparator;
-
-public class ClosestPairOfPoints {
-    static class Point { double x, y; Point(double x, double y) { this.x = x; this.y = y; } }
-    private static double distance(Point p1, Point p2) { return Math.hypot(p1.x - p2.x, p1.y - p2.y); }
-    private static double bruteForce(Point[] points, int left, int right) {
-        double minDist = Double.MAX_VALUE;
-        for (int i = left; i <= right; i++)
-            for (int j = i + 1; j <= right; j++)
-                minDist = Math.min(minDist, distance(points[i], points[j]));
-        return minDist;
-    }
-    private static double stripClosest(Point[] strip, int size, double d) {
-        double min = d;
-        Arrays.sort(strip, 0, size, Comparator.comparingDouble(p -> p.y));
-        for (int i = 0; i < size; i++)
-            for (int j = i + 1; j < size && (strip[j].y - strip[i].y) < min; j++)
-                min = Math.min(min, distance(strip[i], strip[j]));
-        return min;
-    }
-    private static double closestUtil(Point[] pointsSortedX, int left, int right) {
-        if (right - left <= 3) return bruteForce(pointsSortedX, left, right);
-        int mid = left + (right - left) / 2;
-        Point midPoint = pointsSortedX[mid];
-        double dl = closestUtil(pointsSortedX, left, mid);
-        double dr = closestUtil(pointsSortedX, mid + 1, right);
-        double d = Math.min(dl, dr);
-        Point[] strip = new Point[right - left + 1];
-        int j = 0;
-        for (int i = left; i <= right; i++) if (Math.abs(pointsSortedX[i].x - midPoint.x) < d) strip[j++] = pointsSortedX[i];
-        return Math.min(d, stripClosest(strip, j, d));
-    }
-    public static double closest(Point[] points) {
-        Point[] pointsSortedX = points.clone();
-        Arrays.sort(pointsSortedX, Comparator.comparingDouble(p -> p.x));
-        return closestUtil(pointsSortedX, 0, pointsSortedX.length - 1);
-    }
-}
-
+```
+  
 # Architecture Notes
 
 **Merge Sort**: Reusable buffer, insertion sort for small arrays, recursion depth O(log n).
@@ -315,7 +276,9 @@ public class ClosestPairOfPoints {
 | Quick Sort (worst) | T(n) = T(n-1) + O(n) | Θ(n²) |
 | Deterministic Select | T(n) = T(n/5) + T(7n/10) + O(n) | Θ(n) |
 | Closest Pair | T(n) = 2T(n/2) + O(n) | Θ(n log n) |
-#Speed analysis
+
+
+##Speed analysis
 ![Graph Image](https://github.com/Ramazan-droid/asiignment1/raw/main/graphhh.jpg)
 
 
