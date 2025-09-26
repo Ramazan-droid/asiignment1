@@ -316,7 +316,8 @@ public class ClosestPairOfPoints {
 | Deterministic Select | T(n) = T(n/5) + T(7n/10) + O(n) | Θ(n) |
 | Closest Pair | T(n) = 2T(n/2) + O(n) | Θ(n log n) |
 #Speed analysis
-![Graph](desofalg/graphhh.jpg)
+![Graph](https://github.com/Ramazan-droid/asiignment1/raw/main/graphhh.jpg
+)
 
 ## 7. Summary
 
