@@ -315,6 +315,8 @@ public class ClosestPairOfPoints {
 | Quick Sort (worst) | T(n) = T(n-1) + O(n) | Θ(n²) |
 | Deterministic Select | T(n) = T(n/5) + T(7n/10) + O(n) | Θ(n) |
 | Closest Pair | T(n) = 2T(n/2) + O(n) | Θ(n log n) |
+#Speed analysis
+![Graph](desofalg/graphhh.jpg)
 
 ## 7. Summary
 
